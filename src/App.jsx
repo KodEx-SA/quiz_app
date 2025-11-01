@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
 import Quiz from './components/quiz/Quiz'
 
-function App() {
-
-  return;
-  <>
-  <Quiz />
-  </>;
+const App = () => {
+  return (
+    <div>
+      <Quiz />
+    </div>
+  )
 }
 
-export default App;
+export default App

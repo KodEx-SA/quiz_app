@@ -1,9 +1,7 @@
-import React from "react";
 import './Quiz.css'
 
 const Quiz = () => {
     return (
-        <>
         <div className="container">
             <h1>Quiz App</h1>
             <hr />
@@ -17,8 +15,7 @@ const Quiz = () => {
             <button>Next</button>
             <div className="index">1 of 5 questions</div>
         </div>
-        </>
     )
 }
 
-export default Quiz;
+export default Quiz
