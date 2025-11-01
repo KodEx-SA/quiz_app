@@ -1,16 +1,123 @@
-# React + Vite
+# Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, interactive quiz application built with React and Vite. Test your knowledge with multiple-choice questions and get instant feedback on your answers.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Quiz**: Click on options to select answers
+- **Instant Feedback**: Correct answers highlight in green, incorrect in red
+- **Score Tracking**: Keeps track of your correct answers
+- **Progress Indicator**: Shows current question number out of total
+- **Reset Functionality**: Restart the quiz anytime
+- **Responsive Design**: Clean, centered layout that works on different screen sizes
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19**: Modern React with hooks for state management
+- **Vite**: Fast build tool and development server
+- **CSS**: Custom styling for interactive UI elements
+- **ESLint**: Code linting for better code quality
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+quiz_app/
+├── src/
+│   ├── App.jsx              # Main app component
+│   ├── main.jsx             # React app entry point
+│   ├── index.css            # Global styles
+│   ├── assets/
+│   │   └── data.js          # Quiz questions and answers
+│   └── components/
+│       └── quiz/
+│           ├── Quiz.jsx     # Core quiz component with logic
+│           └── Quiz.css     # Quiz-specific styles
+├── index.html               # HTML template
+├── package.json             # Dependencies and scripts
+├── vite.config.js           # Vite configuration
+└── README.md                # This file
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (version 16 or higher)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-url>
+   cd quiz_app
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+4. Open your browser and navigate to `http://localhost:5173` (or the port shown in terminal)
+
+### Build for Production
+
+```bash
+npm run build
+```
+
+### Preview Production Build
+
+```bash
+npm run preview
+```
+
+## How to Use
+
+1. The quiz loads with the first question displayed
+2. Click on one of the four answer options
+3. The selected answer will highlight:
+   - Green for correct answers
+   - Red for incorrect answers
+4. Click the "Next" button to proceed to the next question
+5. After the last question, your final score will be displayed
+6. Click "Reset" to start the quiz again
+
+## Customization
+
+### Adding New Questions
+
+Edit `src/assets/data.js` to add more questions. Each question object should have:
+- `question`: The question text
+- `options`: Array of 4 possible answers
+- `answer`: The correct answer (must match one of the options exactly)
+
+### Styling
+
+Modify `src/components/quiz/Quiz.css` to change colors, fonts, or layout. The app uses CSS classes:
+- `.correct`: Green styling for right answers
+- `.wrong`: Red styling for wrong answers
+
+## Scripts
+
+- `npm run dev`: Start development server with hot reload
+- `npm run build`: Build for production
+- `npm run lint`: Run ESLint
+- `npm run preview`: Preview production build locally
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
