@@ -1,73 +1,261 @@
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    margin-top: 40px;
-    background: #fff;
-    padding: 40px 50px;
+    width: 90%;
+    max-width: 700px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    border-radius: 10px;
+    gap: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.container h1 {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
 .container hr {
     height: 2px;
     border: none;
-    background: #eee;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+    margin: 10px 0;
 }
 
 .container h2 {
-    font-size: 27px;
-    font-weight: 500;
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3748;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .container ul li {
     display: flex;
     align-items: center;
-    height: 70px;
-    padding-left: 15px;
-    font-size: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
-    border-radius: 8px;
+    min-height: 65px;
+    padding: 20px 20px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.container ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
 }
 
 .container ul li:hover {
-    background: #f7f7f7;
-    border: #7c6f6f 2px solid;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-color: #667eea;
+    transform: translateX(8px);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+}
+
+.container ul li:hover::before {
+    transform: scaleY(1);
 }
 
 .container ul li.correct {
-    background: #d4edda;
-    border: #c3e6cb 2px solid;
+    background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+    border-color: #28a745;
     color: #155724;
+    animation: correctPulse 0.5s ease;
+}
+
+.container ul li.correct::before {
+    background: #28a745;
+    transform: scaleY(1);
 }
 
 .container ul li.wrong {
-    background: #f8d7da;
-    border: #f5c6cb 2px solid;
+    background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+    border-color: #dc3545;
     color: #721c24;
+    animation: wrongShake 0.5s ease;
+}
+
+.container ul li.wrong::before {
+    background: #dc3545;
+    transform: scaleY(1);
+}
+
+@keyframes correctPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+@keyframes wrongShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
 }
 
 .container button {
-    margin: auto;
-    width: 250px;
-    height: 65px;
-    background: #2668c4;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 280px;
+    height: 60px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
-    font-size: 25px;
-    font-weight: 500;
-    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    border-radius: 16px;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.container button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
 }
 
 .container button:hover {
-    background: #1b4e8c;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.4);
+}
+
+.container button:hover::before {
+    left: 100%;
+}
+
+.container button:active {
+    transform: translateY(-1px);
 }
 
 .container .index {
-    font-size: 18px;
-    margin: auto;
+    font-size: 16px;
+    font-weight: 500;
+    color: #6c757d;
+    text-align: center;
+    padding: 12px 24px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    margin: 10px auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 30px 25px;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .container h1 {
+        font-size: 28px;
+    }
+
+    .container h2 {
+        font-size: 20px;
+    }
+
+    .container ul li {
+        font-size: 16px;
+        min-height: 60px;
+        padding: 16px 16px;
+        margin-bottom: 12px;
+    }
+
+    .container button {
+        max-width: 100%;
+        height: 56px;
+        font-size: 18px;
+    }
+
+    .container .index {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 24px 20px;
+        margin: 16px auto;
+        border-radius: 20px;
+    }
+
+    .container h1 {
+        font-size: 24px;
+    }
+
+    .container h2 {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+
+    .container ul li {
+        font-size: 15px;
+        min-height: 55px;
+        padding: 14px 14px;
+        border-radius: 12px;
+    }
+
+    .container ul li:hover {
+        transform: translateX(4px);
+    }
+
+    .container button {
+        height: 52px;
+        font-size: 17px;
+        border-radius: 12px;
+    }
 }
